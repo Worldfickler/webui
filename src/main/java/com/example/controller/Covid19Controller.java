@@ -43,6 +43,8 @@ public class Covid19Controller {
         String datetime = FastDateFormat.getInstance("yyyy-MM-dd").format(System.currentTimeMillis());
         Map<String, Object> nationalData = covidMapper.getNationalData(datetime).get(0);
         Result result = Result.success(nationalData);
+        System.out.println("这个是result的结果" + result);
+        System.out.println("11111" + nationalData);
         return result;
     }
 
@@ -52,7 +54,8 @@ public class Covid19Controller {
      */
     @RequestMapping("getNationalConfirmedMapData")
     public Result getNationalConfirmedMapData(){
-        String datetime = FastDateFormat.getInstance("yyyy-MM-dd").format(System.currentTimeMillis());
+        String datetime = "2022-12-12";
+//        String datetime = FastDateFormat.getInstance("yyyy-MM-dd").format(System.currentTimeMillis());
         //datetime = "2022-12-5";
         List<Map<String, Object>> data  = covidMapper.getNationalConfirmedMapData(datetime);
         Result result = Result.success(data);
